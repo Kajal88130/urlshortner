@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} - %5p [%t] %logger{36} - %m%n" />
+
+    <!-- Define log levels for different environments -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- Console output pattern with colors -->
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss} %highlight(%-5level) %cyan([%thread]) %logger{36} - %m%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger configuration -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <!-- Logger for specific packages (Optional) -->
+    <logger name="org.springframework" level="WARN" />
+    <logger name="org.hibernate" level="WARN" />
+
+</configuration>
